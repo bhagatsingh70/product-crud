@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\API\BaseController;
 use App\Models\{Product, ProductAttribute};
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ProductController extends BaseController
@@ -30,6 +29,7 @@ class ProductController extends BaseController
 
     /**
      * Product add
+     * @return Json
      */
     public function store(Request $request){
         try { 
@@ -74,6 +74,7 @@ class ProductController extends BaseController
 
     /**
      * Update product
+     * @return Json
      */
     public function update(Request $request){
         try{
@@ -102,10 +103,11 @@ class ProductController extends BaseController
             return $this->sendError($ex->getMessage());
         }
     }
+
     /**
      * Delete product
+     * @return Json
      */
-
      public function delete(Request $request){
         try{
             Product::destroy($request->id);
